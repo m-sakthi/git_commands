@@ -119,3 +119,60 @@ or you could cancel the merge with
 ```
 git merge --abort
 ```
+
+## Save uncommited changes
+Git allows us to save uncommited changes or changes in a dirty working directory.
+
+```
+git stash
+```
+To list the stashed changes
+```
+git stash list
+```
+To view a particular stash changes
+```
+git stash show <stash-id>
+```
+To drop stash
+```
+git stash drop [<stash-id>]
+```
+If `<stash-id>` is not passed, it will drop the lastest stash by default.
+
+To delete all the stashed changes
+```
+git stash clear
+```
+To save a stash with your own message
+```
+git stash save -p "<message>"
+```
+
+### Tags
+To create, list, verify tag objects signed with GPG.
+
+**Create** a tag with following command
+```
+git tag [-a | -s | -u <keyid>] [-f] [-m <msg> | -F <file>] [-e] <tagname> [<commit> | <object>]
+```
+Options: 
+`-a` or `--annotate` : an unsigned, annotated tag object
+
+`-s` or `--sign` : a GPG-signed tag, using the default e-mail address’s key.
+
+`-u <keyid>` or `--local-user=<keyid>` : a GPG-signed tag, using the given key.
+
+`-f` or `--force` : Replace an existing tag with the given name (instead of failing)
+
+**List** tags
+```
+git tag --list
+```
+`v-*` option will list only the tags that match the pattern(s).
+
+**Delete** a tag
+```
+git tag -d <tagname>
+```
+will delete an existing tag with given name.
