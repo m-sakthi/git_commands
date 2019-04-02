@@ -156,14 +156,28 @@ To create, list, verify tag objects signed with GPG.
 ```
 git tag [-a | -s | -u <keyid>] [-f] [-m <msg> | -F <file>] [-e] <tagname> [<commit> | <object>]
 ```
+
 Options: 
 `-a` or `--annotate` : an unsigned, annotated tag object
-
 `-s` or `--sign` : a GPG-signed tag, using the default e-mail address’s key.
-
 `-u <keyid>` or `--local-user=<keyid>` : a GPG-signed tag, using the given key.
-
 `-f` or `--force` : Replace an existing tag with the given name (instead of failing)
+
+**Create** a tag
+```
+git tag -a <tag-name> -m <tag-description>
+```
+ex: `git tag -a v1.4 -m "my version 1.4"`
+
+**Push** a tag
+```
+git push origin <tag-name>
+```
+ex: `git push origin v1.5`
+To push multiple tags you could use
+```
+git push origin --tags
+```
 
 **List** tags
 ```
